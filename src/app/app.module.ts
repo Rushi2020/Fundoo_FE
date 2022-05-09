@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './Components/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -35,7 +36,8 @@ import { ForgotPasswordComponent } from './Components/forgot-password/forgot-pas
     MatInputModule,
     FlexLayoutModule,
     NoopAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

@@ -14,36 +14,24 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm=this.formBuilder.group({
-      firstname:['',Validators.required],
-      lastname:['',Validators.required],
-      email:['',[Validators.required,Validators.email]],
+      firstname: ['', [Validators.required, Validators.pattern("^[A-Z]{1}[a-z]{2,}$")]],
+      lastname: ['', [Validators.required, Validators.pattern("^[A-Z]{1}[a-z]{2,}$")]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z]{3,}[1-9]{1,4}[@][a-z]{4,}[.][a-z]{3,}$")]],
       password:['',[Validators.required,Validators.minLength(6)]],
-      confirmpassword:['',Validators.required],
-      service:['advance']
+      confirmpassword: ['', Validators.required]
+      
     });
+
   }
-  OnSubmit(){
-    this.submitted=true;
+  onSubmit() {
+    console.log("inside submit");
     if(this.registerForm.valid)
-    {
-      console.log(this.registerForm.value);
-
-      let data={
-        firstName:this.registerForm.value.firstname,
-        lastName:this.registerForm.value.lastname,
-        email:this.registerForm.value.email,
-        password:this.registerForm.value.password,
-        service:this.registerForm.value.service
-      }
-      // this.user.registration(data).subscribe((res:any)=>
-      // {
-      //   console.log(res);
-      // })
-    }
-    else
-    {
-      console.log("enter data");
-    }
+  {
+      console.log("valid data", this.registerForm.value);
   }
-
+  else
+  {
+    console.log("Invalid data", this.registerForm.value);
+  }
+}
 }

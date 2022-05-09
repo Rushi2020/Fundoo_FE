@@ -2,8 +2,7 @@
     <div class="borderStyle">
         <div style=" width: 60%;" fxLayout="column" fxLayoutAlign="space-between left" fxClass-xs="column"
             ngClass.xs="register-xs">
-            <!-- <form [formGroup]="registerForm" (ngSubmit)="OnSubmit()"> -->
-            <!-- <div class="flexitem"> -->
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">            <!-- <div class="flexitem"> -->
                 <h1>
                     <span style="color: blue;">F</span>
                     <span style="color: red;">u</span>
@@ -72,7 +71,7 @@
                     <button style=" cursor: pointer;" mat-button class="buttonStyleforNext">Next</button>
                 </div>
             </div>
-          <!-- </form> -->
+          </form>
         </div>
 
         <div class="account" fxHide.xs="true" fxHide.sm="true">
