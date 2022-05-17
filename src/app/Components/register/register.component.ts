@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit {
       }
       this.user.registration(data).subscribe((res:any)=>{
         console.log(res);
+        
       })
   }
   else

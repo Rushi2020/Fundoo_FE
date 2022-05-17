@@ -1,8 +1,8 @@
-<div fxLayout="column" fxLayoutAlign="space-between center">
-    <div class="borderStylelogin">
+<div class="main" fxLayout="column" fxLayoutAlign="space-between center" >
+    <div class="borderStylelogin" fxFlex.gt-sm="600px" fxFlex="33%" fxHide.md>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div fxLayout="column"  >
+          <div  fxLayout="column" xFlex="auto" fxFlex.gt-xs="33%" fxFlex.gt-sm="50%"  >
              <div style="padding-left:100px">
                 <h1>
                     <span style="color: blue; padding-left: 100px;">F</span>
@@ -16,7 +16,7 @@
                 <!-- <p style="font-size: medium;padding-left: 50px;">Use your Google Account</p> -->
                 <a mat-button style="font-size: medium; color: black; padding-left: 60px;">Use your Google Account</a>
              </div>
-             <div >
+             <div  fxFlex="33%"  >
                 <mat-form-field class="designEmail" appearance="outline">
                     <mat-label>Email or Phone</mat-label>
                     <input matInput placeholder="Email"  formControlName="email">
@@ -39,7 +39,7 @@
              <div>
                 <a mat-button style="color: blue;padding-left: 30px; cursor: pointer;">Learn more</a>
              </div>
-             <div class="Spacesforbutton">
+             <div class="Spacesforbutton"  >
                 <button mat-button class="buttonStyleforCreate" routerLink="/register">Create account</button>
                 <button  mat-button class="buttonStyleforNext">Next</button>
              </div>

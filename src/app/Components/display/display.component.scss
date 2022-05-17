@@ -1,0 +1,41 @@
+.noteDisplaySetting
+{
+    // display: flex;
+    
+    // border-radius: 14px;
+    border: 1px solid grey; 
+    //width:600px;
+    margin-left: 70px;
+    border-color: #e0e0e0;
+    margin-top: 50px;
+    border-radius: 14px;
+    width: 250px;
+    height: 200px;
+    padding-top: 10px;
+    
+}
+.gridToList
+{
+    //padding-left: 30px;
+    width: 600px;
+    height: auto;
+    justify-content: center;
+    //margin-left: 100px;
+}
+::ng-deep .my-custom-dialog-class {
+    mat-dialog-container {
+      padding: 0;
+    }
+  }
+
+  .allicons{
+    display: none;
+}
+
+.noteDisplaySetting:hover .allicons{
+    display: block;
+}
+.notes{
+  align-items: center;
+  text-align: center;
+}

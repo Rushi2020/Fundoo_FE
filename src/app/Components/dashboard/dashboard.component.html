@@ -1,0 +1,80 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxLayout="column">
+  <mat-toolbar class="example-toolbar">
+    <div fxLayout="row" ngClass.xs="menu-xs" fxLayout.xs="row" fxLayout.xs="10">
+      <button style="border: 0px;" mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div>
+      <!-- keep logo  -->
+      <img class="keepImage" src="../../../assets/image/logo keep.png">
+    </div>
+    <div>
+      <h1 class="example-app-name">Fundoo</h1>
+    </div>
+        <!-- search bar  -->
+    <div class="wholesearchbox" ngClass.xs="div_wrraper-xs" ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
+      <img style="margin-left: 10px; height: 30px;" src="../../../assets/image/search_FILL0_wght400_GRAD0_opsz48.svg">
+      <input class="inputSearchbox" type="text" placeholder="Search">
+    
+    </div>
+      
+     <!-- navbar rightside -->
+    <div class="nav" >
+        <!-- refresh  -->
+      <button style="border: 0px;background-color: white; padding-left: 30px;"><img
+          style="padding-top: 10px;block-size:35px;"
+          src="../../../assets/image/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <!-- view  -->
+      <button style="border: 0px;background-color:transparent; padding-left: 20px;"><img
+          style="padding-top: 10px;block-size:35px;"
+          src="../../../assets/image/view_stream_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <!-- setting  -->
+      <button class="button"><img style="padding-top: 10px;block-size:35px;"
+          src="../../../assets/image/settings_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+       <!-- view apps -->
+      <button class="button"><img style="padding-top: 12px; padding-left: 50px;block-size:35px;"
+          src="../../../assets/image/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <!-- account  -->
+      <button class="button"><img style="padding-top:12px margin-left=50px;block-size:35px;margin-top: 12px;"
+          src="../../../assets/image/account_circle_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+
+  </mat-toolbar>
+
+  <!-- side bar  -->
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list class="sidenav">
+        <a mat-list-item routerLink="/dashboard/notes" >
+          <img class="icon" src="../../../assets/image/lightbulb_black_24dp.svg" alt="notes">
+          Notes</a>
+        <a mat-list-item routerLink=".">
+          <img class="icon" src="../../../assets/image/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt="Reminder">
+          Reminder</a>
+        <a mat-list-item routerLink="." >
+          <img class="icon" src="../../../assets/image/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="Edit Lable">
+          Edit Lable</a>
+        <a mat-list-item routerLink="/dashboard/archive">
+          <img class="icon" src="../../../assets/image/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="Archive">
+          Archive</a>
+        <a mat-list-item routerLink="/dashboard/trash" >
+          <img class="icon" src="../../../assets/image/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="Trash">
+          Trash</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>  
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
