@@ -1,5 +1,7 @@
 .example-container .mat-form-field + .mat-form-field {
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
   }
   .example-button-row {
     display: table-cell;
@@ -27,15 +29,20 @@
     align-items: center;
     padding-left: 30px;
     border-radius: 2px;
-    padding-top: 25px;
+    padding-top: 20px;
     padding-bottom: 80px;
     height: 90%;
     align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    // flex-flow: column;
   }
   
   .Spaces .mat-form-field + .mat-form-field{
     margin-left: 5px;
     width: fit-content;
+    flex-direction: column;
+    // flex-flow: wrap;
     //margin-top: 5px;
   }
   
@@ -91,6 +98,8 @@
         width: 100px;
         // margin-left:-20px;
         border-radius: 10px;
+        // margin-left: -171px;
+        
       }
       .account{
         display: flex;
@@ -110,3 +119,35 @@
       {
         width: 100%;
       }
+      .button.xs{
+           margin-left: -171px;
+      }
+
+.fxclass-all{
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+         
+// @media all and(min-width:800px){
+//  .Spaces{
+//    flex:3
+//  }
+// }
+// @media (max-width: 800px) {
+//   .flex-item-right, .flex-item-left {
+//     flex: 100%;
+//   }
+// }
+// .flex-item-left {
+//   flex: 50%;
+// }
+
+// .flex-item-right {
+//   flex: 50%;
+// }
+
+
+
+  
+
