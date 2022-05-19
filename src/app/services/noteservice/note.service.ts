@@ -38,6 +38,42 @@ export class NoteService {
     return this.httpservice.getService(this.base+'Note/GetAllNotes',true,header)
   }
 
+  updateNote(data:any, NoteId:any){
+     
+    let header={
+      headers:new HttpHeaders({
+        'Content-Type': 'application/json-patch+json',
+        'Authorization': 'Bearer '+this.token 
+      })
+    }
+    return this.httpservice.putService(this.base+`Note/UpdateNote/${NoteId}`,data,true,header)
+  }
+
+  archieveNote( noteId:any) {
+
+    console.log("token", this.token)
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer '+this.token
+      })
+    }
+    return this.httpservice.putService(this.base+`Note/ArchieveNote/${noteId}`,{}, true, header)
+  }
+  deleteNote(noteId:any){
+    console.log("token",this.token);
+
+    let header ={
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json-patch+json',
+        'Authorization':'Bearer '+this.token  
+      })
+    }
+    return this.httpservice.deleteService(this.base+`Note/DeleteNote/${noteId}`,true,header)
+
+   }
+
 
 
 }

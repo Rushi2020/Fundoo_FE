@@ -22,7 +22,7 @@ export class HttpService {
   getService(url:any,token:boolean=true,httpOptions:any){
     return this.http.get(url,token && httpOptions)
   }
-  deleteService(){
-    
+  deleteService(url:any,token:boolean=true,httpOptions:any){
+    return this.http.delete(url,token && httpOptions)
   }
 }

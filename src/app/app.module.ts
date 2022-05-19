@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -29,6 +30,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { CreateNoteComponent } from './Components/create-note/create-note.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
+import { UpdateComponent } from './Components/update/update.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { TrashComponent } from './Components/trash/trash.component';
     DisplayComponent,
     CreateNoteComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    UpdateComponent
     
     
     
@@ -65,7 +69,9 @@ import { TrashComponent } from './Components/trash/trash.component';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatMenuModule
 
   ],
   providers: [],
