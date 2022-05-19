@@ -20,4 +20,13 @@ export class GetAllNotesComponent implements OnInit {
     }
   )}
 
+  receiveMessage(event:any){
+    this.GetAllNotes();
+  }
+  updateMessage(event: any) {
+    this.GetAllNotes();
+  }
+  archieveMessage(event: any) {
+    this.GetAllNotes();
+  }
 }

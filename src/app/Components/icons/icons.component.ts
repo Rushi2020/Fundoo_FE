@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NoteService } from 'src/app/services/noteservice/note.service';
 
 @Component({
   selector: 'app-icons',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-
-  constructor() { }
+  // NoteId:any;
+  @Input() notedata:any;
+  @Output() archiveEvent = new EventEmitter<string>();
+  @Output() deleteEvent = new EventEmitter<any>();
+  constructor(private note:NoteService) { }
 
   ngOnInit(): void {
   }
 
+  archieve() {
+    console.log(this.notedata)
+    this.note.archieveNote(this.notedata.noteId).subscribe((response:any)=>{
+      console.log(response);
+      this.archiveEvent.emit("Hello")
+    })
+}
+
+delete(){
+  console.log(this.notedata)
+  this.note.deleteNote(this.notedata.noteId).subscribe((res: any) => {
+    console.log(res);
+    this.deleteEvent.emit("Hello") 
+})
+}
 }
