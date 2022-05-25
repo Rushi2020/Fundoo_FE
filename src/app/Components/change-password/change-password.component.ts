@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/userservice/user.service';
 
@@ -14,7 +15,7 @@ export class ChangePasswordComponent implements OnInit {
   submitted=false;
    token:any;
 
-  constructor(private formBuilder:FormBuilder,private user:UserService , private active:ActivatedRoute) { }
+  constructor(private formBuilder:FormBuilder,private user:UserService , private active:ActivatedRoute,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.ChangePasswordForm=this.formBuilder.group({
@@ -39,6 +40,16 @@ export class ChangePasswordComponent implements OnInit {
 
       this.user.ChangePassword(data ,this.token).subscribe((res: any) => {
         console.log(res);
+        this._snackBar.open('Password changed successfully..', '', {
+          duration: 3000,
+          verticalPosition: 'bottom'
+        })
+      },error=>{
+        this._snackBar.open('Failed to change password', '', {
+        duration: 2000,
+        verticalPosition: 'bottom'
+
+        });
       })
     }
     else

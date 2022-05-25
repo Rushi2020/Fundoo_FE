@@ -1,1 +1,1 @@
-<p>trash works!</p>
+<app-display [recievedNoteList]="noteList" (trashEvent)="trashMessage($event)" (deleteEvent)="deleteMessage($event)" (updateEvent)="updateMessage($event)" ></app-display>

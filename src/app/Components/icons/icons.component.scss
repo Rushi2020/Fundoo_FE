@@ -1,12 +1,18 @@
 .icon{
-    font-size: x-small;
-    padding-right: 20px;
-    size: 20px;
-    height: 20px;
-    font-weight: 10000;
-    
-  }
-  .flex{
-  display: flex;
-  flex-direction: row;
+  font-size: x-small;
+  padding-right: 20px;
+  size: 20px;
+  height: 20px;
+  font-weight: 10000;
+  border:none;
+  cursor: pointer;
+  
+}
+.flex{
+ display: flex;
+flex-direction: row;}
+
+.bg-color{
+  padding: 12px;
+ 
 }

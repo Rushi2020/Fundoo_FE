@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/userservice/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ForgotPasswordComponent implements OnInit {
   forgotPasswordForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private user:UserService) { }
+  constructor(private formBuilder: FormBuilder, private user:UserService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.forgotPasswordForm = this.formBuilder.group({
@@ -29,6 +30,10 @@ export class ForgotPasswordComponent implements OnInit {
       }
       this.user.ForgetPassword(data).subscribe((res:any)=>{
         console.log(res);
+        this._snackBar.open('Mail sent successfully..', '', {
+          duration: 3000,
+          verticalPosition: 'bottom'
+        })
       })
   }
   else

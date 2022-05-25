@@ -1,21 +1,58 @@
-<div class="flex" fxLayout="row">
-     <!-- reminder  -->
-     <img class="icon" src="../../../assets/image/add_alert_FILL0_wght400_GRAD0_opsz48.svg" alt="Remind Me">
-     <img class="icon" src="../../../assets/image/person_add_FILL0_wght400_GRAD0_opsz48.svg" alt="Collabarator">
-     <img class="icon" src="../../../assets/image/palette_FILL0_wght400_GRAD0_opsz48.svg" alt="Background Options">
-     <img class="icon" src="../../../assets/image/image_FILL0_wght400_GRAD0_opsz48.svg" alt="image">
-     <div (click)="archieve()">
-          <img class="icon"  src="../../../assets/image/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="Archive">
+<div class="icons" fxLayout="row">
 
+     <img class="icon" src="../../../assets/image/add_alert_FILL0_wght400_GRAD0_opsz48.svg" alt="Remind Me">
+
+     <img class="icon" src="../../../assets/image/person_add_FILL0_wght400_GRAD0_opsz48.svg" alt="Collabarator">
+
+
+      <div matTooltip="Background color" [matMenuTriggerFor]="color">
+       <img class="icon" src="../../../assets/image/palette_FILL0_wght400_GRAD0_opsz48.svg" alt="color">
+        <mat-menu #color="matMenu">
+         <div fxLayout="row wrap" style="padding-left: 8px;">
+            <div *ngFor="let color of colorArray" class="bg-color" style="width: 60px;">
+              <button style="height: 30px; width:30px; border-radius: 35px;" mat-icon-button mat-raised-button  [style.background]="color.name"  (click)="changeColor(color?.name)"></button>
+            </div>
+    </div>
+        </mat-menu> 
      </div>
-     <!-- <img class="icon"  (click)="archieve()" src="../../../assets/image/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="Archive"> -->
-     <button mat-button [matMenuTriggerFor]="menu"><img src="../../../assets/image/more_vert_FILL0_wght400_GRAD0_opsz48.svg" width="20px" height="20px"></button>     
+
+     <img class="icon" src="../../../assets/image/image_FILL0_wght400_GRAD0_opsz48.svg" alt="image">
+
+
+     <div (click)="archieve()">
+             <img class="icon" src="../../../assets/image/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="archive">
+     </div>
+
+     <div  matTooltip="Unarchive" (click)="Unarchieve();" >
+          <img class="icon" src="../../../assets/image/unarchive_FILL0_wght400_GRAD0_opsz48.svg" alt="Unarchive" *ngIf="isArchieveComponent">
+     </div>
+
+  <div [matMenuTriggerFor]="menu">
+     <div>
+      <img class="icon" style="height: 20px;" src="../../../assets/image/more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+     </div>
      <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="delete()">Delete note</button>
-          <button mat-menu-item>Change labels</button>
-          <button mat-menu-item>Add drawing</button>
-          <button mat-menu-item>Make a copy</button>
-          <button mat-menu-item>Show checkboxes</button>
-          <button mat-menu-item>Copy to google Docs</button>
-          </mat-menu>
+      <button mat-menu-item (click)="trash(notedata)">Delete note</button>
+      <button mat-menu-item>Add drawing</button>
+      <button mat-menu-item>Make a copy</button>
+      <button mat-menu-item>Show checkboxes</button>
+      <button mat-menu-item>Copy to google Docs</button>
+      </mat-menu>   
+   </div>
+
+
+      <!-- trash icons  -->
+      
+      <!-- <img class="icon" src="../../../assets/image/delete_forever_FILL0_wght400_GRAD0_opsz48.svg" alt="Delete Forever" (click)="delete()" *ngIf="isTrashComponent"> -->
+
+
+      <!-- <img class="icon" src="../../../assets/image/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg" alt="Restore" (click)="trash(notedata)" *ngIf="isTrashComponent"> -->
+      <div class="flex" *ngIf="isTrashComponent">
+         <div  class="icon"  mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img
+                 src="../../../assets/image/delete_forever_FILL0_wght400_GRAD0_opsz48.svg" width="25px" height="25px"></div>
+         <div  class="icon"  mat-icon-button matTooltip="Restore" (click)="trash(notedata)"> <img
+                 src="../../../assets/image/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg" width="25px" height="25px"></div>
+     </div>
+   
+  
 </div>

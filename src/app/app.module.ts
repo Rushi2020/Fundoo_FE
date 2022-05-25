@@ -32,6 +32,9 @@ import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
 import { UpdateComponent } from './Components/update/update.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FilterPipe } from './Pipes/filter.pipe';
+import {MatGridListModule}  from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import {MatMenuModule} from '@angular/material/menu';
     CreateNoteComponent,
     ArchiveComponent,
     TrashComponent,
-    UpdateComponent
+    UpdateComponent,
+    FilterPipe,
     
     
     
@@ -71,7 +75,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatCardModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule,
+    MatGridListModule
 
   ],
   providers: [],

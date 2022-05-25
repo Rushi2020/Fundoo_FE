@@ -3,10 +3,22 @@
         <div *ngIf="isShow" fxLayout="row">
             <input class="title" style="width:99%;"  placeholder="title"  [(ngModel)]="title">
              <img src="../../../assets/image/pin.svg" alt="pin">
+             <!-- <img style="height: 20px;width: 20px;padding-left: 10px;" src="../../../assets/image/check_box_FILL0_wght400_GRAD0_opsz48.svg" alt=""> -->
+
         </div>
 
-        <div *ngIf="!isShow || isShow" (click)="show()">
-            <input class="takenote" style="width: 99%;" placeholder="Take a note ..." [(ngModel)]="description">
+        <div  fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!isShow || isShow" (click)="show()">
+            <div *ngIf="!isShow || isShow">
+                <input class="takenote" style="width: 99%;" placeholder="Take a note ..." [(ngModel)]="description" ngClass.xs="descBar-xs" ngClass.sm="descBar-sm" >
+            </div>
+            <div *ngIf="!isShow">
+                <span  style="float: right;"  fxHide.xs="true" fxHide.sm="true">
+                    <img style="height: 20px;width: 20px;padding-left: 10px;" src="../../../assets/image/check_box_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                    <img style="height: 20px;width: 20px;padding-left: 10px;" src="../../../assets/image/brush_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                    <img style="height: 20px;width: 20px;padding-left: 10px;" src="../../../assets/image/image_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </span>
+            </div>
+           
         </div>
         <div class="flex" *ngIf="isShow" fxLayout="row">
             <div class="flex">
@@ -16,3 +28,4 @@
         </div>
     </div>
 </div>
+

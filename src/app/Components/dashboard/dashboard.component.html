@@ -15,7 +15,7 @@
         <!-- search bar  -->
     <div class="wholesearchbox" ngClass.xs="div_wrraper-xs" ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
       <img style="margin-left: 10px; height: 30px;" src="../../../assets/image/search_FILL0_wght400_GRAD0_opsz48.svg">
-      <input class="inputSearchbox" type="text" placeholder="Search">
+      <input class="inputSearchbox" type="text" placeholder="Search" (keyup)="keyFunction($event)" [(ngModel)]="filteredString">
     
     </div>
       
@@ -26,7 +26,7 @@
           style="padding-top: 10px;block-size:35px;"
           src="../../../assets/image/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
-    <div>
+    <div >
       <!-- view  -->
       <button style="border: 0px;background-color:transparent; padding-left: 20px;"><img
           style="padding-top: 10px;block-size:35px;"

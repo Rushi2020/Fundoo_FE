@@ -26,7 +26,7 @@ export class CreateNoteComponent implements OnInit {
     let data={
     "title": this.title,
     "description": this.description,
-    "bgColor": "red",
+    "bgColor": "white",
     "isArchive": true,
     "isReminder": true,
     "isPin": true,
