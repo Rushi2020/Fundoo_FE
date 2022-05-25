@@ -35,4 +35,5 @@ export class GetAllNotesComponent implements OnInit {
   deleteMessage(event:any){
     this.GetAllNotes();
   }
+ 
 }

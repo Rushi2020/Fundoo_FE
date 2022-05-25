@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
 import { filter } from 'rxjs';
+import { DataService } from 'src/app/services/Data/data.service';
 // import { GridListViewService } from 'src/app/Services/gridListdata/grid-list-view.service';
 @Component({
   selector: 'app-display',
@@ -11,7 +12,8 @@ import { filter } from 'rxjs';
 })
 export class DisplayComponent implements OnInit {
   note: any;
-  filteredString = '';
+  // filteredSting:string = '';
+  titleSearch:string = '';
 
   @Input()recievedNoteList:any;
   @Input() childMsg: any;
@@ -22,13 +24,17 @@ export class DisplayComponent implements OnInit {
   @Output() refreshEvent = new EventEmitter<any>();
 
   displayMessage = "note refresh"
-  // gridList: any;
-  constructor(public dialog: MatDialog ) { }
+  // @Output() DisplayEvent = new EventEmitter<string>();
+ 
+  constructor(public dialog: MatDialog , private data:DataService) { }
 
   ngOnInit(): void {
-    // this.nextData.store.subscribe(a => this.gridList = a)
-    // this.nextData.storeForpipe.subscribe(b => this.filteredString = b)
+    this.data.currentMessage.subscribe(message  => {
+      console.log(message)
+      this.titleSearch=message
+    } )
   }
+  
   
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
@@ -56,8 +62,6 @@ export class DisplayComponent implements OnInit {
   }updateMessage(event:any){
     this.updateEvent.emit("Hello")
   }
-  receivedMessage(event: any) {
-    console.log(event);
-    this.refreshEvent.emit(this.displayMessage)
-  }
+ 
+ 
 }

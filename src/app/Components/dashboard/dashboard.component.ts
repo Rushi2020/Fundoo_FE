@@ -1,15 +1,15 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-
+import { DataService } from 'src/app/services/Data/data.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnDestroy {
-  filteredString:string = '';
-  // grid = false;
-  formatGridList = false;
+  titleSearch:string='';
+
+  // formatGridList = false;
   mobileQuery: MediaQueryList;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Note ${i + 1}`);
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private data:DataService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -35,33 +35,13 @@ export class DashboardComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  keyFunction(event:any)
-  {
-     console.log("event", event.target.value)
-  }
-  // shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
+   keyFunction(event:any)
+{
+    console.log("event",event.target.value)
+    this.data.changeMessage(event.target.value)
+}
+  
 }
 
-// FormatView() {
-//   if (this.formatGridList == false) {
-//     this.formatGridList = true
-//     return this.formatGridList
-//   }
-//   else {
-//     this.formatGridList = false
-//     return this.formatGridList
-//   }
-// }
 
-// formatListView() {
-//   this.grid = true
-//   this.nextData.nextDataUpdate(this.FormatView().valueOf())
-//   console.log("value ", this.FormatView())
-// }
-
-// formatGridView() {
-//   this.grid = false
-//   this.nextData.nextDataUpdate(this.FormatView().valueOf())
-//   console.log("value ", this.FormatView())
-// }
 
