@@ -29,4 +29,10 @@ export class GetAllNotesComponent implements OnInit {
   archieveMessage(event: any) {
     this.GetAllNotes();
   }
+  trashMessage(event:any){
+    this.GetAllNotes();
+  }
+  deleteMessage(event:any){
+    this.GetAllNotes();
+  }
 }

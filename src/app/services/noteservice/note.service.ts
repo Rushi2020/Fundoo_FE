@@ -9,6 +9,7 @@ import { HttpService } from '../httpservice/http.service';
 export class NoteService {
   base=environment.baseUrl;
   token:any;
+  data:any;
 
   constructor(private httpservice :HttpService) {  
     this.token=localStorage.getItem('token')
@@ -74,6 +75,29 @@ export class NoteService {
 
    }
 
+   trashNote( noteId: any, data:any) {
 
+    console.log("token", this.token,data)
 
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpservice.putService(this.base + `Note/IsTrash${noteId}`,data, true, header)
+  }
+
+  changeColor( noteId: any,color:any) {
+   
+    console.log("token", this.token,noteId)
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpservice.putService(this.base + `Note/ChangeColorNote/${noteId}?color=${color}`,{}, true, header)
+  }
 }

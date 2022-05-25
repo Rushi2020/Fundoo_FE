@@ -1,33 +1,18 @@
 
-<!-- <div style="border: 1px solid grey; height: 50px; margin: 5px;" *ngFor="let note of recievedNoteList">
-        <p style="margin-left: 5px;">
-            {{note.title}}
-        </p>
-        <p style="margin-left: 5px;">
-            {{note.description}}
-        </p>
-        <p style="margin-left: 5px;">
-            {{note.data}}
-        </p>
-    </div> -->
-
-<!-- </div> -->
-
-<div fxLayout="row wrap">
-        <div  fxLayout="column"  fxLayoutAlign="space-around center" class="noteDisplaySetting" *ngFor="let note of recievedNoteList">
-                
-                <div class="notes">
-                        <p  style="font-size: medium;font: bold;margin-left: -100px;" (click)="openDialog(note)"> {{note.title}}</p>
-                        <p style="margin-left: -100px;" (click)="openDialog(note)" > {{note.description}}</p>
-                        <p style="margin-left: -100px;">
-                                {{note.data}}
-                            </p>
-                </div>
-        
-                <div style="margin-left:4px;">
-                        <app-icons [notedata]="note" (archiveEvent)="archiveMessage($event)" class="allicons"></app-icons>   
-                </div>
-          
-        </div>
+<div class="displayNote " >
+    <div *ngFor="let note of recievedNoteList | filter:filteredString"  >
+        <mat-card class="note"  [style.background]="note.bgColor" >
+            <div class="Title">
+                <p (click)="openDialog(note)">{{note.title}}</p>
+                <p (click)="openDialog(note)">{{note.description}}</p>
+                <p>{{note.token}}</p>
+    
+            </div>
+            <div >
+                <app-icons class="icons" [notedata]="note" (deleteEvent)="deleteMessage($event)" (archiveEvent)="archiveMessage($event)" (trashEvent)="trashMessage($event)"></app-icons>
+            </div>
+         
+        </mat-card>
+    </div>
+   
 </div>
- 

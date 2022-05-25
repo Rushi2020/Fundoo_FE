@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/noteservice/note.service';
 
 @Component({
@@ -12,10 +13,12 @@ export class UpdateComponent implements OnInit {
   noteId:any;
   title:any;
   description:any;
+  bgColor: any
+  @Output() updateEvent = new EventEmitter<string>();
 
   constructor(private note:NoteService,
     public dialogRef: MatDialogRef<UpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any, private _snackBar: MatSnackBar
   ) {}
   
   ngOnInit(): void {
@@ -23,6 +26,7 @@ export class UpdateComponent implements OnInit {
     // this.id=this.data.id;
     this.title=this.data.title;
      this.description=this.data.description;
+     this.bgColor=this.data.bgColor
   }
 
   onNoClick(): void {
@@ -34,7 +38,7 @@ export class UpdateComponent implements OnInit {
       // noteId:this.NoteId,
       "title":this.title,
       "description":this.description,
-      "bgColor": "red",
+      bgColor: "string",
       "isArchive": true,
       "isReminder": true,
       "isPin": true,
@@ -43,6 +47,23 @@ export class UpdateComponent implements OnInit {
     this.note.updateNote(data,this.data.noteId).subscribe((result:any)=>{
       console.log(result);
       // this.messageEvent.emit("Hello")
-    })
+      this._snackBar.open('Note updated successfully', '', {
+        duration: 3000,
+        verticalPosition: 'bottom'
+      })
+    },error=>{
+      this._snackBar.open('Failed to update', '', {
+      duration: 2000,
+      verticalPosition: 'bottom'
+
+      });
+    }
+    )
+   
   }
+  recieveMessage(event:any){
+    this.onNoClick();
+  }
+ 
 }
+
