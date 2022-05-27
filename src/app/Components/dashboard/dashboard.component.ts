@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { DataService } from 'src/app/services/Data/data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,7 +10,6 @@ import { DataService } from 'src/app/services/Data/data.service';
 export class DashboardComponent implements OnDestroy {
   titleSearch:string='';
 
-  // formatGridList = false;
   mobileQuery: MediaQueryList;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Note ${i + 1}`);
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private data:DataService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private data:DataService , private router:Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -40,7 +40,12 @@ export class DashboardComponent implements OnDestroy {
     console.log("event",event.target.value)
     this.data.changeMessage(event.target.value)
 }
-  
+logout()
+{
+  localStorage.removeItem('token');
+  this.router.navigateByUrl("/login")
+  console.log("logout sucessfully!!!");
+}
 }
 
 

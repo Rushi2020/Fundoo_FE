@@ -4,7 +4,7 @@
   size: 20px;
   height: 20px;
   font-weight: 10000;
-  border:none;
+  // border:none;
   cursor: pointer;
   
 }
@@ -13,6 +13,13 @@
 flex-direction: row;}
 
 .bg-color{
-  padding: 12px;
+  padding:12px;
+  width:40px;
  
+  // color:
+}
+.color{
+  height:30px; 
+   width:30px;
+    border-radius: 35px;
 }

@@ -10,14 +10,17 @@
     padding: 0;
   }
 }
+.a{
+  height: fit-content;
+}
 
 
 .note{
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 220px;
+  width: 280px;
   margin-left: 20px;
-  height: 100px;
+  height: 90px;
 }
 
 
@@ -26,4 +29,5 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  // height: 200px;
 }
