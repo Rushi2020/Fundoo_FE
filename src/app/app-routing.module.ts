@@ -20,11 +20,14 @@ const routes: Routes = [
   {path : 'ChangePassword/:token' ,component:ChangePasswordComponent},
   {path : 'dashboard',component:DashboardComponent,
   children:[
+    {path: '' , redirectTo:'/dashboard/notes', pathMatch:'full'},
     {path:'notes',component:GetAllNotesComponent},
     {path:'archive',component:ArchiveComponent},
     {path:'trash',component:TrashComponent},
   ]
 },
+{path: '', redirectTo: '/login', pathMatch: 'full'},
+  
  
 ];
 

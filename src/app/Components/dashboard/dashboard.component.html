@@ -15,14 +15,14 @@
         <!-- search bar  -->
     <div class="wholesearchbox" ngClass.xs="div_wrraper-xs" ngClass.md="div_wrraper-md" ngClass.sm="div_wrraper-sm">
       <img style="margin-left: 10px; height: 30px;" src="../../../assets/image/search_FILL0_wght400_GRAD0_opsz48.svg">
-      <input class="inputSearchbox" type="text" placeholder="Search" (keyup)="keyFunction($event)" [(ngModel)]="filteredString">
+      <input class="inputSearchbox" type="text" placeholder="Search" (keyup)="keyFunction($event)" >
     
     </div>
       
      <!-- navbar rightside -->
     <div class="nav" >
         <!-- refresh  -->
-      <button style="border: 0px;background-color: white; padding-left: 30px;"><img
+      <button style="border: 0px;background-color:transparent; padding-left: 30px;"><img
           style="padding-top: 10px;block-size:35px;"
           src="../../../assets/image/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
@@ -44,7 +44,7 @@
     </div>
     <div>
       <!-- account  -->
-      <button class="button"><img style="padding-top:12px margin-left=50px;block-size:35px;margin-top: 12px;"
+      <button class="button"  (click)="logout()"><img style="padding-top:12px margin-left=50px;block-size:35px;margin-top: 12px;"
           src="../../../assets/image/account_circle_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
 

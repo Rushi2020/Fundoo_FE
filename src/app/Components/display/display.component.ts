@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
 import { filter } from 'rxjs';
-// import { GridListViewService } from 'src/app/Services/gridListdata/grid-list-view.service';
+import { DataService } from 'src/app/services/Data/data.service';
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
@@ -11,23 +11,22 @@ import { filter } from 'rxjs';
 })
 export class DisplayComponent implements OnInit {
   note: any;
-  filteredString = '';
+  titleSearch:string = '';
 
   @Input()recievedNoteList:any;
   @Input() childMsg: any;
   @Output() updateEvent = new EventEmitter<any>();
-  @Output() archiveEvent = new EventEmitter<any>();
-  @Output() trashEvent = new EventEmitter<string>();
-  @Output() deleteEvent = new EventEmitter<string>();
   @Output() refreshEvent = new EventEmitter<any>();
 
   displayMessage = "note refresh"
-  // gridList: any;
-  constructor(public dialog: MatDialog ) { }
+ 
+  constructor(public dialog: MatDialog , private data:DataService) { }
 
   ngOnInit(): void {
-    // this.nextData.store.subscribe(a => this.gridList = a)
-    // this.nextData.storeForpipe.subscribe(b => this.filteredString = b)
+    this.data.currentMessage.subscribe(message  => {
+      console.log(message)
+      this.titleSearch=message
+    } )
   }
   
   openDialog(note:any): void {
@@ -36,7 +35,6 @@ export class DisplayComponent implements OnInit {
       height:'auto',
       data:note,
       panelClass: 'my-custom-dialog-class'
-
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -44,20 +42,7 @@ export class DisplayComponent implements OnInit {
       this.updateEvent.emit("Hello")
     });
   }
-  
-  archiveMessage(event:any){
-    this.archiveEvent.emit("Hello")
-  }
-  trashMessage(event:any){
-    this.trashEvent.emit("Hello")
-  }
-  deleteMessage(event:any){
-    this.deleteEvent.emit("Hello")
-  }updateMessage(event:any){
+  updateMessage(event:any){
     this.updateEvent.emit("Hello")
-  }
-  receivedMessage(event: any) {
-    console.log(event);
-    this.refreshEvent.emit(this.displayMessage)
   }
 }
