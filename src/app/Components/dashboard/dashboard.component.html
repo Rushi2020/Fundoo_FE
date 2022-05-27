@@ -28,7 +28,7 @@
     </div>
     <div >
       <!-- view  -->
-      <button style="border: 0px;background-color:transparent; padding-left: 20px;"><img
+      <button  *ngIf="list" (click)="changeView()"  style="border: 0px;background-color:transparent; padding-left: 20px;"><img
           style="padding-top: 10px;block-size:35px;"
           src="../../../assets/image/view_stream_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>

@@ -46,6 +46,21 @@ logout()
   this.router.navigateByUrl("/login")
   console.log("logout sucessfully!!!");
 }
+
+list: boolean = true;
+grid: boolean = false;
+
+changeView() {
+  if (this.list) {
+    this.grid = true;
+    this.list = false;
+  }
+  else {
+    this.list = true;
+    this.grid = false;
+  }
+  // this.grid.getView();
+}
 }
 
 
