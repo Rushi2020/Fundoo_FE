@@ -13,7 +13,7 @@ export class UpdateComponent implements OnInit {
   noteId:any;
   title:any;
   description:any;
-  bgColor: any
+  bgColor:any
   @Output() updateEvent = new EventEmitter<string>();
 
   constructor(private note:NoteService,
@@ -23,6 +23,7 @@ export class UpdateComponent implements OnInit {
   
   ngOnInit(): void {
     console.log(this.data)
+    console.log(this.data.bgColor)
     // this.id=this.data.id;
     this.title=this.data.title;
      this.description=this.data.description;
@@ -38,7 +39,7 @@ export class UpdateComponent implements OnInit {
       // noteId:this.NoteId,
       "title":this.title,
       "description":this.description,
-      bgColor: "string",
+       bgColor: this.bgColor,
       "isArchive": true,
       "isReminder": true,
       "isPin": true,
@@ -64,6 +65,12 @@ export class UpdateComponent implements OnInit {
   recieveMessage(event:any){
     this.onNoClick();
   }
+  updateMessage(event:any){
+    
+    if(event.data !== (null || undefined)){
+      console.log(event.data)
+    this.bgColor = event.data.bgColor} 
+}
  
 }
 

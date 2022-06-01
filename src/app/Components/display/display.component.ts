@@ -31,7 +31,7 @@ export class DisplayComponent implements OnInit {
   
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: '350px',
+      width: '500px',
       height:'auto',
       data:note,
       panelClass: 'my-custom-dialog-class'
