@@ -3,8 +3,6 @@
      <img class="icon" src="../../../assets/image/add_alert_FILL0_wght400_GRAD0_opsz48.svg" alt="Remind Me">
 
      <img class="icon" src="../../../assets/image/person_add_FILL0_wght400_GRAD0_opsz48.svg" alt="Collabarator">
-
-
       <div matTooltip="Background color" [matMenuTriggerFor]="color">
        <img class="icon" src="../../../assets/image/palette_FILL0_wght400_GRAD0_opsz48.svg" alt="color">
         <mat-menu #color="matMenu">
@@ -15,10 +13,7 @@
     </div>
         </mat-menu> 
      </div>
-
      <img class="icon" src="../../../assets/image/image_FILL0_wght400_GRAD0_opsz48.svg" alt="image">
-
-
      <div (click)="archieve()">
              <img class="icon" src="../../../assets/image/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="archive">
      </div>
@@ -39,17 +34,6 @@
       <button mat-menu-item>Copy to google Docs</button>
       </mat-menu>   
    </div>
-
-
-      <!-- trash icons  -->
-      
-      <!-- <img class="icon" src="../../../assets/image/delete_forever_FILL0_wght400_GRAD0_opsz48.svg" alt="Delete Forever" (click)="delete()" *ngIf="isTrashComponent"> -->
-
-
-      <!-- <img class="icon" src="../../../assets/image/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg" alt="Restore" (click)="trash(notedata)" *ngIf="isTrashComponent"> -->
-     
-   
-  
 </div>
 <div class="flex" *ngIf="isTrashComponent">
    <div  class="icon"  mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img

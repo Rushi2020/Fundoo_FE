@@ -1,10 +1,4 @@
 
-
-// ::ng-deep .my-custom-dialog-class {
-//     mat-dialog-container {
-//       padding: 0 !important;
-//     }
-//   }
 ::ng-deep .my-custom-dialog-class {
   mat-dialog-container {
     padding: 0;
@@ -12,8 +6,7 @@
 }
 .a{
   height: fit-content;
-}
-
+};
 
 .note{
   margin-top: 20px;
@@ -21,13 +14,11 @@
   width: 280px;
   margin-left: 20px;
   height: 90px;
-}
-
+};
 
 .displayNote{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  // height: 200px;
-}
+};

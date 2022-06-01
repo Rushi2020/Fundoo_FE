@@ -19,7 +19,6 @@ export class IconsComponent implements OnInit {
 
   @Input() notedata:any;
   @Output() updateEvent = new EventEmitter<string>();
-  // @Output() trashEvent = new EventEmitter<string>();
 
   isTrashComponent=false;
   isDisplayComponent=false;
@@ -63,9 +62,9 @@ export class IconsComponent implements OnInit {
 }
 
 Unarchieve() {
-  let data = {
-    isArchived: false,
-  }
+  // let data = {
+  //   isArchived: false,
+  // }
   this.note.archieveNote(this.notedata.noteId).subscribe((res:any)=>{
     console.log("unarchive a note",res);
     this.updateEvent.emit(res)

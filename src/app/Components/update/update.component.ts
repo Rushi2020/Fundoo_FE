@@ -39,7 +39,7 @@ export class UpdateComponent implements OnInit {
       // noteId:this.NoteId,
       "title":this.title,
       "description":this.description,
-      bgColor: this.bgColor,
+       bgColor: this.bgColor,
       "isArchive": true,
       "isReminder": true,
       "isPin": true,
